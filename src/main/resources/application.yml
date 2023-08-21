@@ -1,0 +1,8 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: gateways-of-hell-user
+  jpa:
+    hibernate:
+      ddl-auto: update
