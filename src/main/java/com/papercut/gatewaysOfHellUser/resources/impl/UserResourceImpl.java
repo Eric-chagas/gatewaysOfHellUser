@@ -3,6 +3,7 @@ package com.papercut.gatewaysOfHellUser.resources.impl;
 import com.papercut.gatewaysOfHellUser.domain.User;
 import com.papercut.gatewaysOfHellUser.resources.UserResource;
 import com.papercut.gatewaysOfHellUser.services.UserService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,5 +27,10 @@ public class UserResourceImpl implements UserResource {
     @Override
     public ResponseEntity<List<User>> findAll() {
         return ResponseEntity.ok().body(userService.findAll());
+    }
+
+    @Override
+    public ResponseEntity<User> create(User user) {
+        return ResponseEntity.ok().body(userService.create(user));
     }
 }

@@ -23,7 +23,8 @@ public class GatewaysOfHellUserApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		userRepository.deleteAll();
 		userRepository.saveAll(List.of(
-			new User(null, "WilliamBlazkowicz", "bj.blazko@idsoft.com", "wolfenstein", "deathincarnate1960", 40, 46.69)
+			new User(null, "WilliamBlazkowicz", "bj.blazko@idsoft.com", "wolfenstein", "deathincarnate1960", 40, 46.69),
+			new User(null, "PinkDemon", "destroyer@worlds.tq", "ode", "bloodFireDeath", 20, 1990.2)
 		));
 	}
 }
