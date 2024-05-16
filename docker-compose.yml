@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  # PostgreSQL atabase service
+  db:
+    image: postgres:latest
+    # Map postgres usual port to same port on host
+    ports:
+      - "5432:5432"
+    # DB environment variables
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: gateways-user
+    # Defining volumes
+    volumes:
+      - db_data:/var/lib/postgresql     # Volume to persist db data
+      - ./src/database:/docker-entrypoint-initdb.d   # Volume link to local SQL scripts which creates DBs
+
+volumes:
+  db_data:
