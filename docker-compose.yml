@@ -22,7 +22,7 @@ services:
       # Dockerfile context with build steps and .jar output
       context: .
       dockerfile: Dockerfile
-    # Map application localhost port to same port on host
+    # Map application localhost port to host port
     ports:
       - 9038:8000
 
