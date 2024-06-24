@@ -1,9 +1,8 @@
-version: '3.8'
-
+version: '3'
 services:
-  # PostgreSQL atabase service
-  db:
-    image: postgres:latest
+    # PostgreSQL database service
+  database:
+    image: postgres:15
     # Map postgres usual port to same port on host
     ports:
       - "5432:5432"
@@ -16,6 +15,16 @@ services:
     volumes:
       - db_data:/var/lib/postgresql     # Volume to persist db data
       - ./src/database:/docker-entrypoint-initdb.d   # Volume link to local SQL scripts which creates DBs
+  
+  # Java springboot api service 
+  gateways-user:
+    build:
+      # Dockerfile context with build steps and .jar output
+      context: .
+      dockerfile: Dockerfile
+    # Map application localhost port to same port on host
+    ports:
+      - 9038:8000
 
 volumes:
   db_data:
